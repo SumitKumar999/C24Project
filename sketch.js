@@ -1,4 +1,4 @@
-var rect, rect1, rect2, ball, ground;
+var box, box1, box2, ball, ground;
 
 const Engine = Matter.Engine;
 const World = Matter.World;
@@ -17,16 +17,11 @@ function setup() {
 	engine = Engine.create();
 	world = engine.world;
 
-	fill("white");
-	rect = createSprite(700,570,15,200);
-	rect1 = createSprite(500,570,15,200);
-	rect2 = createSprite(600,620,220,115);
+	box = new Box(700,510,15,100);
+	box1 = new Box(500,510,15,100);
+	box2 = new Box(600,560,220,15);
 
-	rect1.shapeColor = "White";
-	rect.shapeColor = "White";
-	rect2.shapeColor = "White";
-
-	ball = createSprite(100,615,20,120);
+	ball = createSprite(100,550,20,20);
 	ball.shapeColor = "red";
 
 	ground = createSprite(400,635,800,110);
@@ -43,6 +38,10 @@ function setup() {
 function draw() {
   rectMode(CENTER);
   background(0);
+
+  box.display();
+  box1.display();
+  box2.display();
   
   drawSprites();
  
