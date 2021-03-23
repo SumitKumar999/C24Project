@@ -1,28 +1,46 @@
-class Ball {
-    constructor(x, y) {
-      var options = {
-          'restitution':0.8,
-          'friction':0.3,
-          'density':1.0
-      }
-      this.body = Bodies.circle(x, y, 10,{isStatic:false});
+var box, box1, box2, ball, ground;
 
-      
-      World.add(world, this.body);
-    }
-    display(){
-      var pos =this.body.position;
-      var angle = this.body.angle;
+const Engine = Matter.Engine;
+const World = Matter.World;
+const Bodies = Matter.Bodies;
+const Body = Matter.Body;
 
-      push();
-      translate(pos.x, pos.y);
-      rotate(angle);
-      rectMode(CENTER);
-      fill("red");
-      strokeWeight(4);
-      stroke("red")
-      ellipse(0, 0, 10);
-      pop();
+function preload()
+{
+	
+}
 
-    }
-  }
+function setup() {
+	createCanvas(800, 600);
+
+
+	engine = Engine.create();
+	world = engine.world;
+
+	box = new Box(700,510,15,100);
+	box1 = new Box(500,510,15,100);
+	box2 = new Box(600,560,220,15);
+
+	ball = new Ball(100,550,20,20);
+
+	ground = createSprite(400,635,800,110);
+	ground.shapeColor = "yellow";
+
+    
+	Engine.run(engine);
+  
+}
+
+
+function draw() {
+  rectMode(CENTER);
+  background(0);
+
+  box.display();
+  box1.display();
+  box2.display();
+  ball.display();
+  
+  drawSprites();
+ 
+}
