@@ -5,7 +5,7 @@ class Ball {
           'friction':0.3,
           'density':1.0
       }
-      this.body = Bodies.circle(x, y, 10,{isStatic:false});
+      this.body = Bodies.circle(x, y, 10,options);
 
       
       World.add(world, this.body);
@@ -17,7 +17,7 @@ class Ball {
       push();
       translate(pos.x, pos.y);
       rotate(angle);
-      rectMode(CENTER);
+      ellipseMode(RADIUS)
       fill("red");
       strokeWeight(4);
       stroke("red")
